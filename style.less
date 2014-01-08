@@ -1,0 +1,86 @@
+/* Mixins */
+
+//Sizing
+.size(@width; @height) {
+	width: @width;
+	height: @height;
+}
+
+//Square Sizing
+.square(@size) {
+	.size(@size; @size);
+}
+
+//Hide text
+.hide-text() {
+	font: ~"0/0" a;
+	color: transparent;
+	text-shadow: none;
+	background-color: transparent;
+	border: 0;
+}
+
+//Border Radius
+.border-radius (@radius: 5px) {
+	-webkit-border-radius: @radius;
+	-moz-border-radius: @radius;
+	border-radius: @radius;
+}
+
+/* Styles */
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+}
+
+body {
+  min-height: 100%;
+}
+
+.scroller {
+	width: 100%;
+	height: 100%;
+
+	section {
+		width: 100%;
+		height: 100%;
+	}
+
+	section#section1 {
+		background: #CA2B69;
+	}
+
+	section#section2 {
+		background: #3A7EA2;
+	}
+
+	section#section3 {
+		background: #00B1A0;
+	}
+
+	.scroller-nav {
+		z-index: 999;
+		position: fixed;
+		top: 50%;
+		right: 20px;
+		margin-top: -75px;
+
+		a {
+			display: block;
+			margin: 12px 0px;
+			.square(16px);
+			.hide-text();
+			.border-radius(50%);
+			border: 2px solid #FFFFFF;
+
+			&:active,
+			&.active {
+				background: #FFFFFF;
+			}
+		}
+	}
+}
